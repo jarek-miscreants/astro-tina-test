@@ -189,12 +189,6 @@ export default defineConfig({
             label: "Related components",
             list: true,
           },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
-          },
         ],
         ui: {
           defaultItem: () => ({
