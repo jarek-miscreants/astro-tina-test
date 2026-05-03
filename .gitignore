@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# tina generated client
+tina/__generated__/
+public/admin/
