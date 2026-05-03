@@ -1,0 +1,125 @@
+{
+  "title": "Astro Playground",
+  "blocks": [
+    {
+      "_template": "hero",
+      "heading": "Hello World",
+      "subheading": "This is a playground for Astro.",
+      "ctaPrimary": { "label": "Learn More", "href": "#" },
+      "ctaSecondary": { "label": "Get a Demo", "href": "#" }
+    },
+    {
+      "_template": "features",
+      "heading": "Features",
+      "items": [
+        {
+          "eyebrow": "Schema Builder",
+          "title": "Design content structures your way.",
+          "description": "Miscreants gives you full control over content with a streamlined, API-first experience — perfect for teams who want speed without sacrificing flexibility.",
+          "icon": "lucide:layers",
+          "image": "/images/feature-1.webp"
+        },
+        {
+          "eyebrow": "Schema Builder",
+          "title": "Design content structures your way.",
+          "description": "Miscreants gives you full control over content with a streamlined, API-first experience — perfect for teams who want speed without sacrificing flexibility.",
+          "icon": "lucide:database",
+          "image": "/images/feature-1.webp"
+        },
+        {
+          "eyebrow": "Schema Builder",
+          "title": "Design content structures your way.",
+          "description": "Miscreants gives you full control over content with a streamlined, API-first experience — perfect for teams who want speed without sacrificing flexibility.",
+          "icon": "lucide:zap"
+        },
+        {
+          "eyebrow": "Schema Builder",
+          "title": "Design content structures your way.",
+          "description": "Miscreants gives you full control over content with a streamlined, API-first experience — perfect for teams who want speed without sacrificing flexibility.",
+          "icon": "lucide:settings-2"
+        }
+      ]
+    },
+    {
+      "_template": "iconStats",
+      "items": [
+        {
+          "icon": "lucide:activity",
+          "header": "98.3% uptime",
+          "content": "Proven reliability across sources with proactive monitoring"
+        },
+        {
+          "icon": "lucide:shield-check",
+          "header": "Enterprise security",
+          "content": "Encryption at every step with compliance-ready infrastructure"
+        },
+        {
+          "icon": "lucide:server",
+          "header": "Scalable infrastructure",
+          "content": "Scale your workflow to hundreds of millions of daily fetches"
+        },
+        {
+          "icon": "lucide:headphones",
+          "header": "24/7 support",
+          "content": "Proven reliability across sources with proactive monitoring"
+        },
+        {
+          "icon": "lucide:life-buoy",
+          "header": "24/7 support",
+          "content": "Proven reliability across sources with proactive monitoring"
+        }
+      ]
+    },
+    {
+      "_template": "accordionMorph",
+      "ariaLabel": "Frequently asked questions",
+      "openIndex": 0,
+      "items": [
+        {
+          "icon": "lucide:wrench",
+          "title": "What is design engineering?",
+          "description": "Where design intuition meets code execution — enabling you to see UI problems and build solutions from the ground up."
+        },
+        {
+          "icon": "lucide:puzzle",
+          "title": "What is the craft of UI?",
+          "description": "A course about building things well — mastering the web platform so you're not limited by tools or libraries."
+        },
+        {
+          "icon": "lucide:globe",
+          "title": "Why focus on the web platform?",
+          "description": "Because when you work with the web — not fight it — you unlock performance, accessibility, and durability that last."
+        },
+        {
+          "icon": "lucide:sparkles",
+          "title": "Why does craft matter?",
+          "description": "Because it's more than making something work — it's making something feel right: inclusive, resilient, and scalable."
+        },
+        {
+          "icon": "lucide:users",
+          "title": "Who is this for?",
+          "description": "Designers who code, developers who design — anyone ready to stop chasing snippets and become the person who can build anything."
+        }
+      ]
+    },
+    {
+      "_template": "flowSteps",
+      "title": "How it works.",
+      "description": "Clicking a step slides the panel column — three panels stacked in one grid cell, each offset by index * 100% along the Y axis.",
+      "steps": [
+        {
+          "title": "Issue credentials from your portal",
+          "description": "Control the look and feel of your credential issuance directly in your portal. Our API enables a complete integration."
+        },
+        {
+          "title": "Craft a template to issue passes via API",
+          "description": "Display your brand (or your customer's) in wallet with ease. Then issue credentials via API that are delivered via text."
+        },
+        {
+          "title": "Users install your custom crafted credential",
+          "description": "With a SMS integration, your users receive a text message with a link to install the pass on their phone."
+        }
+      ]
+    }
+  ]
+}

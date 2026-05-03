@@ -1,0 +1,20 @@
+---
+import HeroBlock from "./HeroBlock.astro";
+import FeaturesBlock from "./FeaturesBlock.astro";
+import IconStatsBlock from "./IconStatsBlock.astro";
+import AccordionMorphBlock from "./AccordionMorphBlock.astro";
+import FlowStepsBlock from "./FlowStepsBlock.astro";
+
+interface Props {
+  block: { _template?: string; [key: string]: unknown };
+}
+
+const { block } = Astro.props;
+const { _template, ...rest } = block;
+---
+
+{_template === "hero" && <HeroBlock {...rest} />}
+{_template === "features" && <FeaturesBlock {...rest} />}
+{_template === "iconStats" && <IconStatsBlock {...rest} />}
+{_template === "accordionMorph" && <AccordionMorphBlock {...rest} />}
+{_template === "flowSteps" && <FlowStepsBlock {...rest} />}

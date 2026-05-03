@@ -1,0 +1,64 @@
+---
+import SectionMain from "../SectionMain.astro";
+import CardFeatured from "../CardFeatured.astro";
+import { Icon } from "astro-icon/components";
+
+interface FeatureItem {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  icon?: string;
+  image?: string;
+}
+
+interface Props {
+  heading?: string;
+  items?: FeatureItem[];
+}
+
+const { heading, items = [] } = Astro.props;
+---
+
+<SectionMain
+  id="features"
+  paddingTop="sm"
+  paddingBottom="none"
+  contentPadding="none"
+  borderTop
+>
+  <div class="container-large">
+    {heading && (
+      <div class="flex flex-col px-6 gap-4">
+        <h2 class="h2">{heading}</h2>
+      </div>
+    )}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-stroke border-y border-stroke">
+      {items.map((item) => (
+        <CardFeatured
+          border="none"
+          class="bg-canvas"
+          title={item.title}
+          description={item.description}
+        >
+          {item.eyebrow && <span slot="eyebrow">{item.eyebrow}</span>}
+          {item.icon && (
+            <Icon
+              slot="icon"
+              name={item.icon}
+              class="w-6 h-6 text-fg-muted"
+              aria-hidden="true"
+            />
+          )}
+          {item.image && (
+            <img
+              slot="media"
+              src={item.image}
+              alt={item.title || ""}
+              class="w-full h-auto mt-4 mask-b-from-30% mask-b-to-95%"
+            />
+          )}
+        </CardFeatured>
+      ))}
+    </div>
+  </div>
+</SectionMain>

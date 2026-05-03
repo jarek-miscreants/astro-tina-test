@@ -128,6 +128,198 @@ export default defineConfig({
         },
       },
       {
+        name: "page",
+        label: "Pages",
+        path: "src/content/pages",
+        format: "json",
+        ui: {
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            required: true,
+            isTitle: true,
+          },
+          {
+            type: "object",
+            name: "blocks",
+            label: "Blocks",
+            list: true,
+            ui: {
+              itemProps: (item: { _template?: string }) => ({
+                label: item?._template ?? "block",
+              }),
+            },
+            templates: [
+              {
+                name: "hero",
+                label: "Hero",
+                fields: [
+                  { type: "string", name: "heading", label: "Heading" },
+                  { type: "string", name: "subheading", label: "Subheading" },
+                  {
+                    type: "object",
+                    name: "ctaPrimary",
+                    label: "Primary CTA",
+                    fields: [
+                      { type: "string", name: "label", label: "Label" },
+                      { type: "string", name: "href", label: "Link URL" },
+                    ],
+                  },
+                  {
+                    type: "object",
+                    name: "ctaSecondary",
+                    label: "Secondary CTA",
+                    fields: [
+                      { type: "string", name: "label", label: "Label" },
+                      { type: "string", name: "href", label: "Link URL" },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "features",
+                label: "Features grid",
+                fields: [
+                  { type: "string", name: "heading", label: "Heading" },
+                  {
+                    type: "object",
+                    name: "items",
+                    label: "Cards",
+                    list: true,
+                    ui: {
+                      itemProps: (item: { title?: string }) => ({
+                        label: item?.title ?? "Card",
+                      }),
+                    },
+                    fields: [
+                      { type: "string", name: "eyebrow", label: "Eyebrow" },
+                      { type: "string", name: "title", label: "Title" },
+                      {
+                        type: "string",
+                        name: "description",
+                        label: "Description",
+                        ui: { component: "textarea" },
+                      },
+                      {
+                        type: "string",
+                        name: "icon",
+                        label: "Icon (lucide:name)",
+                      },
+                      { type: "image", name: "image", label: "Image" },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "iconStats",
+                label: "Icon stats row",
+                fields: [
+                  {
+                    type: "object",
+                    name: "items",
+                    label: "Items",
+                    list: true,
+                    ui: {
+                      itemProps: (item: { header?: string }) => ({
+                        label: item?.header ?? "Item",
+                      }),
+                    },
+                    fields: [
+                      {
+                        type: "string",
+                        name: "icon",
+                        label: "Icon (lucide:name)",
+                      },
+                      { type: "string", name: "header", label: "Header" },
+                      {
+                        type: "string",
+                        name: "content",
+                        label: "Content",
+                        ui: { component: "textarea" },
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "accordionMorph",
+                label: "Accordion (morphing)",
+                fields: [
+                  { type: "string", name: "ariaLabel", label: "Aria label" },
+                  {
+                    type: "number",
+                    name: "openIndex",
+                    label: "Default open index",
+                  },
+                  {
+                    type: "object",
+                    name: "items",
+                    label: "Items",
+                    list: true,
+                    ui: {
+                      itemProps: (item: { title?: string }) => ({
+                        label: item?.title ?? "Item",
+                      }),
+                    },
+                    fields: [
+                      {
+                        type: "string",
+                        name: "icon",
+                        label: "Icon (lucide:name)",
+                      },
+                      { type: "string", name: "title", label: "Title" },
+                      {
+                        type: "string",
+                        name: "description",
+                        label: "Description",
+                        ui: { component: "textarea" },
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "flowSteps",
+                label: "Flow steps",
+                fields: [
+                  { type: "string", name: "title", label: "Title" },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Description",
+                    ui: { component: "textarea" },
+                  },
+                  {
+                    type: "object",
+                    name: "steps",
+                    label: "Steps",
+                    list: true,
+                    ui: {
+                      itemProps: (item: { title?: string }) => ({
+                        label: item?.title ?? "Step",
+                      }),
+                    },
+                    fields: [
+                      { type: "string", name: "title", label: "Title" },
+                      {
+                        type: "string",
+                        name: "description",
+                        label: "Description",
+                        ui: { component: "textarea" },
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
         name: "component",
         label: "Components",
         path: "src/content/components",

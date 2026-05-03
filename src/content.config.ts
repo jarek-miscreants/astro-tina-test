@@ -39,4 +39,17 @@ const components = defineCollection({
   }),
 });
 
-export const collections = { faq, announcements, components };
+// Page-builder content. Each page is a JSON document with an ordered list of
+// blocks; the matching Astro page renders each block by switching on the
+// `_template` discriminator. Tina is the authoring contract — the zod schema
+// here stays permissive (z.any() per block) so adding a new block type only
+// needs an entry in tina/config.ts and a render branch in the page.
+const pages = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/pages" }),
+  schema: z.object({
+    title: z.string(),
+    blocks: z.array(z.any()).default([]),
+  }),
+});
+
+export const collections = { faq, announcements, components, pages };

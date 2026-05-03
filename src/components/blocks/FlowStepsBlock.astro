@@ -1,0 +1,100 @@
+---
+import SectionMain from "../SectionMain.astro";
+import FlowSteps from "../FlowSteps.astro";
+import { Icon } from "astro-icon/components";
+
+interface Step {
+  title?: string;
+  description?: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  steps?: Step[];
+}
+
+const { title, description, steps = [] } = Astro.props;
+---
+
+<SectionMain
+  id="flow-steps"
+  paddingBottom="md"
+  contentPadding="none"
+  borderTop
+>
+  <FlowSteps title={title} description={description} steps={steps}>
+    <Fragment slot="panel-0">
+      <div class="w-full max-w-sm p-6 flex flex-col gap-5 rounded-2xl bg-panel shadow-popover">
+        <div class="font-semibold text-sm">Add credential</div>
+        <div class="flex flex-col gap-2">
+          <div class="text-fg-muted text-xs">Credential type</div>
+          <div class="rounded-lg border border-stroke bg-panel p-0.5 grid grid-cols-2">
+            <div class="py-1 px-3 flex justify-center rounded-md bg-panel text-xs font-medium">Card</div>
+            <div class="py-1 px-3 flex justify-center text-fg-subtle text-xs font-medium">Mobile</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="flex flex-col gap-2">
+            <div class="text-fg-muted text-xs">Card number</div>
+            <div class="px-2 py-1 rounded-lg border border-stroke bg-panel text-fg-subtle text-xs">••••</div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="text-fg-muted text-xs">Facility code</div>
+            <div class="px-2 py-1 rounded-lg border border-intent bg-panel text-xs">1234</div>
+          </div>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+          <div class="px-3 py-1.5 rounded-lg border border-stroke bg-panel text-xs font-medium">Cancel</div>
+          <div class="px-3 py-1.5 rounded-lg bg-intent text-fg-on-intent text-xs font-semibold">Submit</div>
+        </div>
+      </div>
+    </Fragment>
+
+    <Fragment slot="panel-1">
+      <div class="w-full max-w-sm p-5 rounded-2xl bg-fg shadow-popover font-mono text-xs leading-5 text-panel">
+        <div><span class="text-[#DA8CFF]">curl</span> https://api.example.com/v1/credentials/ \</div>
+        <div>--request POST \</div>
+        <div>--header 'Content-Type: application/json' \</div>
+        <div>--header 'x-acct-id: $ACCOUNT_ID' \</div>
+        <div>--data '{'{'}</div>
+        <div>&nbsp;&nbsp;"template_id": "0xd3adb33f",</div>
+        <div>&nbsp;&nbsp;"full_name": "Ada Lovelace",</div>
+        <div>&nbsp;&nbsp;"email": "ada@example.com",</div>
+        <div>&nbsp;&nbsp;"expires_at": "2026-03-22T16:40:41Z"</div>
+        <div>{'}'}</div>
+      </div>
+    </Fragment>
+
+    <Fragment slot="panel-2">
+      <div class="w-full max-w-sm p-6 rounded-2xl bg-canvas shadow-popover">
+        <div class="text-xs text-fg-muted font-semibold text-center mb-4">Messages</div>
+        <div class="flex flex-col divide-y divide-stroke">
+          <div class="flex items-start gap-3 py-2.5">
+            <div class="size-7 rounded-full bg-intent/10 shrink-0 flex items-center justify-center">
+              <Icon name="lucide:badge-check" class="w-4 h-4 text-intent" aria-hidden="true" />
+            </div>
+            <div>
+              <div class="text-xs font-semibold">Playground</div>
+              <div class="text-xs text-fg-muted line-clamp-2">You can now access your employee badge using this link...</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 py-2.5 opacity-60">
+            <div class="size-7 rounded-full bg-panel-muted shrink-0"></div>
+            <div>
+              <div class="text-xs font-semibold">Dad</div>
+              <div class="text-xs text-fg-muted line-clamp-2">Got you a bottle of red wine from the shop.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 py-2.5 opacity-60">
+            <div class="size-7 rounded-full bg-panel-muted shrink-0"></div>
+            <div>
+              <div class="text-xs font-semibold">FedEx</div>
+              <div class="text-xs text-fg-muted line-clamp-2">Your parcel is out for delivery today!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  </FlowSteps>
+</SectionMain>

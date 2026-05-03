@@ -1,0 +1,45 @@
+---
+import SectionMain from "../SectionMain.astro";
+import Button from "../Button.astro";
+import ButtonGroup from "../ButtonGroup.astro";
+
+interface CTA {
+  label?: string;
+  href?: string;
+}
+
+interface Props {
+  heading?: string;
+  subheading?: string;
+  ctaPrimary?: CTA;
+  ctaSecondary?: CTA;
+}
+
+const { heading, subheading, ctaPrimary, ctaSecondary } = Astro.props;
+---
+
+<SectionMain
+  id="hero"
+  padding="none"
+  contentPadding="none"
+  contentClass="items-center text-center relative"
+>
+  <div class="relative z-20 flex flex-col items-center gap-2 py-32 md:py-48 px-6">
+    {heading && <h1 class="h1">{heading}</h1>}
+    {subheading && <p class="mt-2 text-xl text-fg-muted">{subheading}</p>}
+    {(ctaPrimary?.label || ctaSecondary?.label) && (
+      <ButtonGroup>
+        {ctaPrimary?.label && (
+          <Button label={ctaPrimary.label} href={ctaPrimary.href} />
+        )}
+        {ctaSecondary?.label && (
+          <Button
+            variant="secondary"
+            label={ctaSecondary.label}
+            href={ctaSecondary.href}
+          />
+        )}
+      </ButtonGroup>
+    )}
+  </div>
+</SectionMain>
